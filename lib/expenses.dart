@@ -1,6 +1,7 @@
 import 'package:expense_tracker/new_expense.dart';
 import 'package:expense_tracker/widget/expense_list/expenses_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'model/expense.dart';
 
@@ -44,7 +45,7 @@ class _ExpensesState extends State<Expenses> {
     setState(() {
       _registeredExpenses.remove(expense);
     });
-    ScaffoldMessenger.of(context).clearSnackBars(); 
+    ScaffoldMessenger.of(context).clearSnackBars();
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         duration: const Duration(seconds: 3),
@@ -72,11 +73,16 @@ class _ExpensesState extends State<Expenses> {
     }
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Expense Tracker'),
+          title: const Text(
+              style: TextStyle(color: Colors.white),
+              'Expense Tracker'),
           actions: [
             IconButton(
               onPressed: _openAddExpense,
-              icon: const Icon(Icons.add),
+              icon: const Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
             ),
           ],
         ),
