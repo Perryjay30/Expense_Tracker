@@ -32,7 +32,7 @@ void main() {
             ),
         ),
         textTheme: ThemeData().textTheme.copyWith(
-          titleLarge: TextStyle(
+          titleLarge: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.red,
             fontSize: 20
