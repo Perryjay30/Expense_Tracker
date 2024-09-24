@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
 import 'expenses.dart';
 
 var kColorScheme = ColorScheme.fromSeed(
@@ -9,39 +10,44 @@ var kDarkColorScheme = ColorScheme.fromSeed(
     seedColor: const Color.fromARGB(255, 5, 99, 125));
 
 void main() {
-  runApp(
-    MaterialApp(
-      darkTheme: ThemeData.dark().copyWith(
-        useMaterial3: true,
-        colorScheme: kDarkColorScheme,
-      ),
-      theme: ThemeData().copyWith(
-        useMaterial3: true,
-        colorScheme: kColorScheme,
-        appBarTheme: const AppBarTheme().copyWith(
-          backgroundColor: kColorScheme.onPrimaryContainer,
-          foregroundColor: kColorScheme.onPrimaryContainer
+  // WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  // ]).then((fn) {
+    runApp(
+      MaterialApp(
+        darkTheme: ThemeData.dark().copyWith(
+          useMaterial3: true,
+          colorScheme: kDarkColorScheme,
         ),
-        cardTheme: const CardTheme().copyWith(
-          color: kColorScheme.secondaryContainer,
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: kColorScheme.primaryContainer,
+        theme: ThemeData().copyWith(
+            useMaterial3: true,
+            colorScheme: kColorScheme,
+            appBarTheme: const AppBarTheme().copyWith(
+                backgroundColor: kColorScheme.onPrimaryContainer,
+                foregroundColor: kColorScheme.onPrimaryContainer
             ),
+            cardTheme: const CardTheme().copyWith(
+                color: kColorScheme.secondaryContainer,
+                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
+            ),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: kColorScheme.primaryContainer,
+              ),
+            ),
+            textTheme: ThemeData().textTheme.copyWith(
+                titleLarge: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.red,
+                    fontSize: 20
+                )
+            )
         ),
-        textTheme: ThemeData().textTheme.copyWith(
-          titleLarge: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.red,
-            fontSize: 20
-          )
-        )
+        // themeMode: ThemeMode.system, //default
+        home: Expenses(),
       ),
-      // themeMode: ThemeMode.system, //default
-      home: Expenses(),
-    ),
-  );
+    );
+  // });
 }
 
